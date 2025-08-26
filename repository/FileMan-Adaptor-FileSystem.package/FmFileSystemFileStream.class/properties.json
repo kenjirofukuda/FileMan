@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "File",
+	"category" : "FileMan-Adaptor-FileSystem",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "FmFileSystemFileStream",
+	"type" : "normal"
+}

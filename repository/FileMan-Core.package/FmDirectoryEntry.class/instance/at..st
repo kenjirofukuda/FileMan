@@ -1,3 +1,3 @@
 dictionary-like
 at: localFileName 
-	^self at: localFileName by: nil
+	^ (self at: localFileName by: nil) asString
