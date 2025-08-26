@@ -1,0 +1,31 @@
+#+TITLE: 試行錯誤の記録
+
+* FmFileIOAccessor class>>#defaultDirectoryPath が絶対パスを返さない。
+トップの $/ が欠落してしまう。
+
+#+begin_src smalltalk
+  FmFileIOAccessor defaultDirectoryPath.
+
+  "'home/kenjiro/Pharo/images/Pharo 6.1 - (IceUpdated) 64bit'".
+#+end_src
+
+** 環境
+#+begin_src 
+Image
+-----
+/home/kenjiro/Pharo/images/Pharo 6.1 - (IceUpdated) 64bit/Pharo 6.1 - (IceUpdated) 64bit.image
+Pharo6.0
+Latest update: #60547
+Unnamed
+
+Image Sources
+-------------
+SourceFileArray
+MultiByteFileStream: '/home/kenjiro/Pharo/vms/61-x64/lib/pharo/5.0-201806281256/PharoV60.sources'
+MultiByteFileStream: '/home/kenjiro/Pharo/images/Pharo 6.1 - (IceUpdated) 64bit/Pharo 6.1 - (IceUpdated) 64bit.changes'
+
+Operating System/Hardware
+-------------------------
+unix linux-gnu x86_64
+
+#+end_src
