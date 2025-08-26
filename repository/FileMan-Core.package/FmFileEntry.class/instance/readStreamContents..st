@@ -1,8 +1,7 @@
 accessing-stream
-readStreamContents: blockWithArg 
+readStreamContents: blockWithArg
 	| stream conts |
 	stream := self readStream.
-	[conts := blockWithArg value: stream]
-		ensure: [stream
-				ifNotNilDo: [:s | s close]].
+	[ conts := blockWithArg value: stream ]
+		ensure: [ stream ifNotNil: [ :s | s close ] ].
 	^ conts

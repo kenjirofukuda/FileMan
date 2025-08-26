@@ -1,10 +1,8 @@
 actions
-copy: fromFileFullName to: toFileFullName 
+copy: fromFileFullName to: toFileFullName
 	| readStr writeStr |
-	[readStr := (self readOnlyFileNamed: fromFileFullName) binary.
+	[ readStr := (self readOnlyFileNamed: fromFileFullName) binary.
 	writeStr := (self forceNewFileNamed: toFileFullName) binary.
-	self copyFile: readStr toFile: writeStr]
-		ensure: [readStr
-				ifNotNilDo: [:r | r close].
-			writeStr
-				ifNotNilDo: [:w | w close]]
+	self copyFile: readStr toFile: writeStr ]
+		ensure: [ readStr ifNotNil: [ :r | r close ].
+			writeStr ifNotNil: [ :w | w close ] ]
