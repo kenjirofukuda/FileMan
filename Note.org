@@ -1,6 +1,7 @@
 #+TITLE: 試行錯誤の記録
 
 * FmFileIOAccessor class>>#defaultDirectoryPath が絶対パスを返さない。
+
 トップの $/ が欠落してしまう。
 
 #+begin_src smalltalk
@@ -29,3 +30,24 @@ Operating System/Hardware
 unix linux-gnu x86_64
 
 #+end_src
+
+** 対策
+
+#+begin_src smalltalk
+FmFileSystemFileIOAccessor>>#defaultDirectoryPath
+	^ FileSystem disk workingDirectory path printWithDelimiter: self pathNameDelimiter
+#+end_src
+を
+#+begin_src smalltalk
+FmFileSystemFileIOAccessor>>defaultDirectoryPath
+	^ FileSystem disk workingDirectory fullName
+#+end_src
+に変更した
+
+これで、Windowsの絶対パスのテスト以外がクリアできた。
+
+全てのバージョンと全てのプラットフォームにおけるテストが出来ない以上
+本対策は、私的な用途による施策となる。
+
+よって、プルリクエストを送るつもりはない。
+
